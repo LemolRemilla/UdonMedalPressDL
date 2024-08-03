@@ -23,6 +23,7 @@ function showError(message) {
     errorElement.textContent = message;
     errorElement.classList.add('error');
     document.getElementById('log-list').appendChild(errorElement);
+    hideLoading();
 }
 
 function hideLoading() {
@@ -211,6 +212,7 @@ function load() {
             normalDlLink.href = window.URL.createObjectURL(blob);
             normalDlLink.download = 'normalmap.png';
             normalDlLink.hidden = false;
+            hideLoading();
         });
         
 
@@ -238,7 +240,6 @@ function load() {
 
 window.addEventListener('DOMContentLoaded', function () {
     load();
-    hideLoading();
 });
 
 const CHARS = [
