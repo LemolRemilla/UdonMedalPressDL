@@ -25,6 +25,10 @@ function showError(message) {
     document.getElementById('log-list').appendChild(errorElement);
 }
 
+function hideLoading() {
+    document.getElementById('loading').hidden = true;
+}
+
 function getPixelRGBA(imageData, x, y) {
     let baseIndex = (y * imageData.width + x) * 4;
     return {
@@ -152,8 +156,7 @@ const ADVANCE_ANGLE_REV = -9;
 const FONT_COLUMN = 8;
 const FONT_ROW = 8;
 
-window.addEventListener('DOMContentLoaded', function () {
-
+function load() {
     const version = getURLParameter('v', '0');
     if (version != '1') {
         showError('UdonMedalPressから生成したURLでアクセスしてください。');
@@ -231,6 +234,11 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     fontNormalImg.crossOrigin = 'Anonymous';
     fontNormalImg.src = './resources/font_normal.png';
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+    load();
+    hideLoading();
 });
 
 const CHARS = [
