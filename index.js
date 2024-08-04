@@ -10,9 +10,12 @@ function setLoadAllCallback(elems, callback) {
     }
 }
 
-function getURLParameter(key, fallback) {
+function getURLParameter(key, fallback, applyFallbackIfEmpty = false) {
     let params = new URLSearchParams(document.location.search);
     if (params.has(key) == false) {
+        return fallback;
+    }
+    if (!params.get(key) && applyFallbackIfEmpty) {
         return fallback;
     }
     return params.get(key);
