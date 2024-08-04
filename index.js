@@ -167,11 +167,11 @@ function load() {
         return;
     }
 
-    const normalUrl = getURLParameter('nm', './resources/medal_default_normal.png');
     const upperStr = getURLParameter('up', '');
     const lowerStr = getURLParameter('lw', '');
-    const reverseLower = getURLParameter('rev', 'false');
-    const resourceURL = getURLParameter('res', '');
+    const reverseLower = getURLParameter('rl', 'false');
+    const normalUrl = getURLParameter('nm', './resources/medal_default_normal.png', true);
+    const resourceURL = getURLParameter('rs', '');
 
     const baseNormalImg = new Image();
     const fontNormalImg = new Image();
